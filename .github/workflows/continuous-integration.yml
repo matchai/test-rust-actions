@@ -16,9 +16,44 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest]
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+
       - uses: hecrj/setup-rust-action@master
       - uses: actions/checkout@master
-      - run: cargo install cross
+      - name: Install cross
+        run: |
+          git config --global user.email "not_necessery@dont.need"
+          git config --global user.name "I merge the things"
+          git clone https://github.com/rust-embedded/cross
+          cd cross
+          git remote add pitkley https://github.com/pitkley/cross
+          git fetch pitkley
+          git checkout 718a19c
+          git merge -m "No pseudo tty" pitkley/docker-no-pseudo-tty
+          cargo install --force --path .
       - run: cross build --target x86_64-unknown-linux-gnu --release
         if: runner.os == 'Linux'
       - run: cross build --target x86_64-apple-darwin --release
