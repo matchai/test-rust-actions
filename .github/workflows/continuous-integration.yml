@@ -44,9 +44,11 @@ jobs:
       - uses: hecrj/setup-rust-action@master
       - uses: actions/checkout@master
       - name: Install cross
-        run: |
+        run: | # Install cross from master until fix for TTY is released
           git clone https://github.com/rust-embedded/cross
-          cargo install --force --path .
+          cargo install --force --path ./cross
+        
+        # Build the release for the platform on the appropriate runner
       - run: cross build --target x86_64-unknown-linux-gnu --release
         if: runner.os == 'Linux'
       - run: cross build --target x86_64-apple-darwin --release
