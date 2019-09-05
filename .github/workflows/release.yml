@@ -19,7 +19,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest]
     steps:
-
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -48,17 +47,35 @@ jobs:
       - uses: hecrj/setup-rust-action@master
       - uses: actions/checkout@master
       - name: Install cross
-        run: |
-          git config --global user.email "not_necessery@dont.need"
-          git config --global user.name "I merge the things"
+        run: | # Install cross from master until fix for TTY is released
           git clone https://github.com/rust-embedded/cross
-          cd cross
-          git remote add pitkley https://github.com/pitkley/cross
-          git fetch pitkley
-          git checkout 718a19c
-          git merge -m "No pseudo tty" pitkley/docker-no-pseudo-tty
-          cargo install --force --path .
-      - run: cross build --target x86_64-unknown-linux-gnu --release
+          cargo install --force --path ./cross
+
+        # Build the release for the platform on the appropriate runner
+      - run: |
+          mkdir x86_64-unknown-linux-gnu
+          cross build --target x86_64-unknown-linux-gnu --release
+          cp target/x86_64-unknown-linux-gnu/release/starship x86_64-unknown-linux-gnu
+          tar -czf x86_64-unknown-linux-gnu
         if: runner.os == 'Linux'
-      - run: cross build --target x86_64-apple-darwin --release
+      - name: Release (Linux)
+        uses: softprops/action-gh-release@v0.1.0
+        if: runner.os == 'Linux'
+        with: 
+          files: x86_64-unknown-linux-gnu.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: |
+          mkdir x86_64-apple-darwin
+          cross build --target x86_64-apple-darwin --release
+          cp target/x86_64-unknown-linux-gnu/release/starship x86_64-apple-darwin
+          tar -czf x86_64-apple-darwin
         if: runner.os == 'macOS'
+      - name: Release (macOS)
+        uses: softprops/action-gh-release@v0.1.0
+        if: runner.os == 'macOS'
+        with: 
+          files: x86_64-apple-darwin.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
