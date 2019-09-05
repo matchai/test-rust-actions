@@ -1,5 +1,8 @@
-name: Continuous Integration
-on: [push, pull_request]
+name: Release
+on:
+  push:
+    tags:
+      - v*
 
 jobs:
   test:
@@ -12,9 +15,8 @@ jobs:
     name: Release
     needs: [test]
     runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
+    matrix:
+      os: [ubuntu-latest, macOS-latest]
     steps:
       - uses: hecrj/setup-rust-action@master
       - uses: actions/checkout@master
