@@ -1,0 +1,241 @@
+{
+  "projectName": "starship",
+  "projectOwner": "starship",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "badgeTemplate": "<a href=\"#contributors\"><img src=\"https://badgen.net/badge/all%20contributors/<%= contributors.length %>/orange\" alt=\"All Contributors\"></a>",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "matchai",
+      "name": "Matan Kushner",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4658208?v=4",
+      "profile": "https://twitter.com/matchai",
+      "contributions": [
+        "code",
+        "design",
+        "ideas",
+        "infra",
+        "maintenance",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "johnletey",
+      "name": "John Letey",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/30328854?v=4",
+      "profile": "https://github.com/johnletey",
+      "contributions": [
+        "code",
+        "ideas",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "Multimo",
+      "name": "Tim Mulqueen",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6132021?v=4",
+      "profile": "http://timmulqueen.com",
+      "contributions": [
+        "code",
+        "ideas",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "sirMerr",
+      "name": "Tiffany Le-Nguyen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11183523?v=4",
+      "profile": "https://github.com/sirMerr",
+      "contributions": [
+        "ideas",
+        "maintenance",
+        "review",
+        "doc"
+      ]
+    },
+    {
+      "login": "Snuggle",
+      "name": "​Snuggle",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/26250962?v=4",
+      "profile": "https://about.snuggi.es",
+      "contributions": [
+        "design",
+        "ideas",
+        "maintenance",
+        "review"
+      ]
+    },
+    {
+      "login": "mehcode",
+      "name": "Ryan Leckey",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/753919?v=4",
+      "profile": "https://github.com/mehcode",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "youssefhabri",
+      "name": "Youssef Habri",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1578005?v=4",
+      "profile": "https://github.com/youssefhabri",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "chipbuster",
+      "name": "Kevin Song",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4605384?v=4",
+      "profile": "https://github.com/chipbuster",
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "andrewda",
+      "name": "Andrew Dassonville",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10191084?v=4",
+      "profile": "https://andrewda.me",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "MaT1g3R",
+      "name": "MaT1g3R",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/15258494?v=4",
+      "profile": "https://github.com/MaT1g3R",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "AZanellato",
+      "name": "André Zanellato",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/30451287?v=4",
+      "profile": "https://github.com/AZanellato",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "saghm",
+      "name": "Saghm Rossi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5875560?v=4",
+      "profile": "https://saghm.com",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "cappyzawa",
+      "name": "Shu Kutsuzawa",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12455284?v=4",
+      "profile": "https://medium.com/@cappyzawa",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "iamsauravsharma",
+      "name": "Saurav Sharma",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/38726015?v=4",
+      "profile": "https://github.com/iamsauravsharma",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "andytom",
+      "name": "Thomas O'Donnell",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/108836?v=4",
+      "profile": "https://github.com/andytom",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "bbigras",
+      "name": "Bruno Bigras",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/24027?v=4",
+      "profile": "https://github.com/bbigras",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "wyze",
+      "name": "Neil Kistner",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/186971?v=4",
+      "profile": "https://neilkistner.com/",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "qstrahl",
+      "name": "Quinn Strahl",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2235277?v=4",
+      "profile": "http://ca.linkedin.com/in/qstrahl",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "tivervac",
+      "name": "Titouan Vervack",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3389524?v=4",
+      "profile": "https://github.com/tivervac",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "oblitum",
+      "name": "Francisco Lopes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1269815?v=4",
+      "profile": "http://nosubstance.me",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ahouts",
+      "name": "Andrew Houts",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16907671?v=4",
+      "profile": "https://github.com/ahouts",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
