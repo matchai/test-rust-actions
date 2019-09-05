@@ -45,8 +45,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Install cross
         run: |
-          git config --global user.email "not_necessery@dont.need"
-          git config --global user.name "I merge the things"
           git clone https://github.com/rust-embedded/cross
           cd cross
           git remote add pitkley https://github.com/pitkley/cross
