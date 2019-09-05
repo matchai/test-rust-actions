@@ -46,11 +46,6 @@ jobs:
       - name: Install cross
         run: |
           git clone https://github.com/rust-embedded/cross
-          cd cross
-          git remote add pitkley https://github.com/pitkley/cross
-          git fetch pitkley
-          git checkout 718a19c
-          git merge -m "No pseudo tty" pitkley/docker-no-pseudo-tty
           cargo install --force --path .
       - run: cross build --target x86_64-unknown-linux-gnu --release
         if: runner.os == 'Linux'
