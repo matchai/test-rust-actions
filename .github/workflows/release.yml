@@ -53,10 +53,9 @@ jobs:
 
         # Build the release for the platform on the appropriate runner
       - run: |
-          mkdir x86_64-unknown-linux-gnu
           cross build --target x86_64-unknown-linux-gnu --release
-          cp target/x86_64-unknown-linux-gnu/release/starship x86_64-unknown-linux-gnu
-          tar -czf x86_64-unknown-linux-gnu
+          cp target/x86_64-unknown-linux-gnu/release/starship starship
+          tar -czf x86_64-unknown-linux-gnu.tar.gz starship
         if: runner.os == 'Linux'
       - name: Release (Linux)
         uses: softprops/action-gh-release@v0.1.0
@@ -67,10 +66,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
-          mkdir x86_64-apple-darwin
           cross build --target x86_64-apple-darwin --release
-          cp target/x86_64-apple-darwin/release/starship x86_64-apple-darwin
-          tar -czf x86_64-apple-darwin
+          cp target/x86_64-apple-darwin/release/starship starship
+          tar -czf x86_64-apple-darwin.tar.gz starship
         if: runner.os == 'macOS'
       - name: Release (macOS)
         uses: softprops/action-gh-release@v0.1.0
