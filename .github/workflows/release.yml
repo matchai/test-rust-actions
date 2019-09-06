@@ -58,12 +58,12 @@ jobs:
           tar -czf x86_64-unknown-linux-gnu.tar.gz starship
         if: runner.os == 'Linux'
       - name: Release (Linux)
-        uses: softprops/action-gh-release@v0.1.0
+        uses: Shopify/upload-to-release
         if: runner.os == 'Linux'
         with: 
-          files: x86_64-unknown-linux-gnu.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: x86_64-unknown-linux-gnu.tar.gz
+          path: x86_64-unknown-linux-gnu.tar.gz
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
           cross build --target x86_64-apple-darwin --release
@@ -71,9 +71,9 @@ jobs:
           tar -czf x86_64-apple-darwin.tar.gz starship
         if: runner.os == 'macOS'
       - name: Release (macOS)
-        uses: softprops/action-gh-release@v0.1.0
+        uses: Shopify/upload-to-release
         if: runner.os == 'macOS'
         with: 
-          files: x86_64-apple-darwin.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: x86_64-apple-darwin.tar.gz
+          path: x86_64-apple-darwin.tar.gz
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
