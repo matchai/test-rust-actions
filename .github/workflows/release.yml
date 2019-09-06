@@ -58,7 +58,7 @@ jobs:
           tar -czf x86_64-unknown-linux-gnu.tar.gz starship
         if: runner.os == 'Linux'
       - name: Release (Linux)
-        uses: Shopify/upload-to-release
+        uses: Shopify/upload-to-release@master
         if: runner.os == 'Linux'
         with: 
           name: x86_64-unknown-linux-gnu.tar.gz
@@ -71,7 +71,7 @@ jobs:
           tar -czf x86_64-apple-darwin.tar.gz starship
         if: runner.os == 'macOS'
       - name: Release (macOS)
-        uses: Shopify/upload-to-release
+        uses: Shopify/upload-to-release@master
         if: runner.os == 'macOS'
         with: 
           name: x86_64-apple-darwin.tar.gz
