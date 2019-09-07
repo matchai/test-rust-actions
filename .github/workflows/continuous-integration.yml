@@ -41,9 +41,18 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 
-      - uses: hecrj/setup-rust-action@master
-      - uses: actions/checkout@master
-      - name: Install cross
-        run: | # Install cross from master until fix for TTY is released
-          git clone https://github.com/rust-embedded/cross
-          cargo install --force --path ./cross
+      - run: echo $MATRIX
+
+      - run: echo ::set-env name=FOO::BAR
+      - run: echo $FOO
+
+      - run: 'echo ::set-env name=SAMPLE::\{ \"hello\": \"world\"\}'
+      - run: echo $SAMPLE
+      - run: echo ${{ SAMPLE.hello }}
+
+      # - uses: hecrj/setup-rust-action@master
+      # - uses: actions/checkout@master
+      # - name: Install cross
+      #   run: | # Install cross from master until fix for TTY is released
+      #     git clone https://github.com/rust-embedded/cross
+      #     cargo install --force --path ./cross
