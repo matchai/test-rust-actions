@@ -46,13 +46,14 @@ jobs:
       - run: echo ::set-env name=FOO::BAR
       - run: echo $FOO
 
-      - run: 'echo ::set-env name=SAMPLE::\{ \"hello\": \"world\"\}'
-      - run: echo $SAMPLE
-      # - run: echo ${{ SAMPLE.hello }}
+      - run: echo $TEST_THINGS
+        env:
+          TEST_THINGS:
+            Linux: x86_64-unknown-linux-gnu
+            macOS: x86_64-apple-darwin
 
-      # - uses: hecrj/setup-rust-action@master
-      # - uses: actions/checkout@master
-      # - name: Install cross
-      #   run: | # Install cross from master until fix for TTY is released
-      #     git clone https://github.com/rust-embedded/cross
-      #     cargo install --force --path ./cross
+      - run: echo ${{ TEST_THINGS[matrix.os] }}
+        env:
+          TEST_THINGS:
+            Linux: x86_64-unknown-linux-gnu
+            macOS: x86_64-apple-darwin
