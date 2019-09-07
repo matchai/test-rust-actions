@@ -48,7 +48,7 @@ jobs:
 
       - run: 'echo ::set-env name=SAMPLE::\{ \"hello\": \"world\"\}'
       - run: echo $SAMPLE
-      - run: echo ${{ SAMPLE.hello }}
+      # - run: echo ${{ SAMPLE.hello }}
 
       # - uses: hecrj/setup-rust-action@master
       # - uses: actions/checkout@master
