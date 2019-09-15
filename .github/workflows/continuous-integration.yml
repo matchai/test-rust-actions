@@ -19,9 +19,6 @@ jobs:
           command: build
           arguments: --release --target x86_64-unknown-linux-gnu
           use-cross: true
-      - run: |
-          cp target/x86_64-unknown-linux-gnu/release/starship starship
-          tar -czf x86_64-unknown-linux-gnu.tar.gz starship
 
   macos-release:
     name: macOS Release
@@ -34,6 +31,3 @@ jobs:
           command: build
           arguments: --release --target x86_64-apple-darwin 
           use-cross: true
-      - run: |
-          cp target/x86_64-apple-darwin/release/starship starship
-          tar -czf x86_64-apple-darwin.tar.gz starship
