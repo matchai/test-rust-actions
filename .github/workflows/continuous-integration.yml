@@ -8,52 +8,32 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-  release:
-    name: Release
+  linux-release:
+    name: Linux Release
     needs: [test]
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
+    runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
+      - uses: actions/checkout@master
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          arguments: --release --target x86_64-unknown-linux-gnu
+          use-cross: true
+      - run: |
+          cp target/x86_64-unknown-linux-gnu/release/starship starship
+          tar -czf x86_64-unknown-linux-gnu.tar.gz starship
 
-      - run: echo $MATRIX
-
-      - run: echo ::set-env name=FOO::BAR
-      - run: echo $FOO
-
-      - run: echo $TEST_THINGS
-        env:
-          TEST_THINGS:
-            Linux: x86_64-unknown-linux-gnu
-            macOS: x86_64-apple-darwin
-
-      - run: echo ${{ TEST_THINGS[matrix.os] }}
-        env:
-          TEST_THINGS:
-            Linux: x86_64-unknown-linux-gnu
-            macOS: x86_64-apple-darwin
+  macos-release:
+    name: macOS Release
+    needs: [test]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          arguments: --release --target x86_64-apple-darwin 
+          use-cross: true
+      - run: |
+          cp target/x86_64-apple-darwin/release/starship starship
+          tar -czf x86_64-apple-darwin.tar.gz starship
