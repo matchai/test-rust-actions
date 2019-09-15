@@ -17,6 +17,7 @@ jobs:
       - uses: actions-rs/toolchain@master
         with:
           toolchain: stable
+          override: true
       - uses: actions-rs/cargo@master
         with:
           command: build
@@ -32,6 +33,7 @@ jobs:
       - uses: actions-rs/toolchain@master
         with:
           toolchain: stable
+          override: true
       - uses: actions-rs/cargo@master
         with:
           command: build
