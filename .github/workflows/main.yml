@@ -209,6 +209,6 @@ jobs:
         with:
           draft: true
           files: ${{ matrix.name }}
-          body_path: ${{ github.workflow }}-RELEASE.txt
+          # body_path: ${{ github.workflow }}-RELEASE.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
