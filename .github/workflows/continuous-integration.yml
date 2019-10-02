@@ -192,10 +192,10 @@ jobs:
             tar czvf ../../../${{ matrix.name }} ${{ matrix.bin }}
           fi
           cd -
+      - name: Install git-chglog
+        run: go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
       - name: Generate release notes
-        run: |
-          go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
-          git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > ${{ github.workflow }}-RELEASE.txt
+        run: git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > ${{ github.workflow }}-RELEASE.txt
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
