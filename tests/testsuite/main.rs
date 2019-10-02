@@ -1,9 +1,12 @@
+mod aws;
 mod character;
 mod cmd_duration;
 mod common;
 mod configuration;
 mod directory;
+mod env_var;
 mod git_branch;
+mod git_state;
 mod git_status;
 mod golang;
 mod hostname;
@@ -14,4 +17,5 @@ mod nix_shell;
 mod nodejs;
 mod python;
 mod ruby;
+mod time;
 mod username;

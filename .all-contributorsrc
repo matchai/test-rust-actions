@@ -153,7 +153,8 @@
       "contributions": [
         "code",
         "doc",
-        "test"
+        "test",
+        "translation"
       ]
     },
     {
@@ -173,7 +174,8 @@
       "profile": "https://github.com/andytom",
       "contributions": [
         "code",
-        "test"
+        "test",
+        "doc"
       ]
     },
     {
@@ -193,7 +195,8 @@
       "profile": "https://neilkistner.com/",
       "contributions": [
         "code",
-        "test"
+        "test",
+        "review"
       ]
     },
     {
@@ -234,6 +237,151 @@
         "code",
         "doc",
         "test"
+      ]
+    },
+    {
+      "login": "nickwb",
+      "name": "Nick Young",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/594211?v=4",
+      "profile": "https://github.com/nickwb",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "g2p",
+      "name": "Gabriel de Perthuis",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/61678?v=4",
+      "profile": "https://github.com/g2p",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Hofer-Julian",
+      "name": "Hofer-Julian",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/30049909?v=4",
+      "profile": "https://github.com/Hofer-Julian",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "unhappychoice",
+      "name": "Yuji Ueki",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5608948?v=4",
+      "profile": "http://blog.unhappychoice.com",
+      "contributions": [
+        "content",
+        "translation"
+      ]
+    },
+    {
+      "login": "heyrict",
+      "name": "谢祯晖",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/25698503?v=4",
+      "profile": "https://github.com/heyrict",
+      "contributions": [
+        "code",
+        "doc",
+        "translation",
+        "review"
+      ]
+    },
+    {
+      "login": "bookun",
+      "name": "Kutsuzawa Ryo",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10346162?v=4",
+      "profile": "https://twitter.com/bookun2851",
+      "contributions": [
+        "review",
+        "code",
+        "test",
+        "translation"
+      ]
+    },
+    {
+      "login": "hdevalke",
+      "name": "hdevalke",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2261239?v=4",
+      "profile": "https://github.com/hdevalke",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "jakubclark",
+      "name": "Kuba Clark",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19486495?v=4",
+      "profile": "https://github.com/jakubclark",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "gimbar",
+      "name": "Gimbar",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/862483?v=4",
+      "profile": "http://breax.org",
+      "contributions": [
+        "code",
+        "test",
+        "doc"
+      ]
+    },
+    {
+      "login": "TomHotston",
+      "name": "Tom Hotston",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22729355?v=4",
+      "profile": "http://tomhotston.net",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "bijancn",
+      "name": "Bijan Chokoufe Nejad",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2117164?v=4",
+      "profile": "https://github.com/bijancn",
+      "contributions": [
+        "code",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "yuri1969",
+      "name": "yuri",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/13468636?v=4",
+      "profile": "https://github.com/yuri1969",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "TsubasaKawajiri",
+      "name": "TsubasaKawajiri",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/39114857?v=4",
+      "profile": "https://github.com/TsubasaKawajiri",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "qryxip",
+      "name": "Ryo Yamashita",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/14125495?v=4",
+      "profile": "https://github.com/qryxip",
+      "contributions": [
+        "code"
       ]
     }
   ],
