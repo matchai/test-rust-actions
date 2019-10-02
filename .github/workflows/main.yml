@@ -205,7 +205,7 @@ jobs:
           git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > ${{ github.workflow }}-RELEASE.txt
 
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v1
+        uses: matchai/action-gh-release@master
         with:
           draft: true
           files: 'starship*.tar.gz'
