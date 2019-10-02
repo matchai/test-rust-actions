@@ -208,7 +208,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          # files: ${{ matrix.name }}
-          body_path: ${{ github.workflow }}-RELEASE.txt
+          files: ${{ matrix.name }}
+          # body_path: ${{ github.workflow }}-RELEASE.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
