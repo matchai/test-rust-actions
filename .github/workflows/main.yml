@@ -7,15 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - run: rustup component add rustfmt
-      - uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-          args: --all -- --check
+      # - uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
+      # - run: rustup component add rustfmt
+      # - uses: actions-rs/cargo@v1
+      #   with:
+      #     command: fmt
+      #     args: --all -- --check
 
   # Run the `clippy` linting tool
   clippy:
@@ -23,15 +23,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - run: rustup component add clippy
-      - uses: actions-rs/clippy-check@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          args: --all-targets --all-features -- -D clippy::all
+      # - uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
+      # - run: rustup component add clippy
+      # - uses: actions-rs/clippy-check@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     args: --all-targets --all-features -- -D clippy::all
 
   # Run a security audit on dependencies
   cargo_audit:
@@ -39,15 +39,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - run: cargo install --force cargo-audit
-      - run: cargo generate-lockfile
-      - uses: actions-rs/cargo@v1
-        with:
-          command: audit
+      # - uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
+      # - run: cargo install --force cargo-audit
+      # - run: cargo generate-lockfile
+      # - uses: actions-rs/cargo@v1
+      #   with:
+      #     command: audit
 
   # Ensure that the project could be successfully compiled
   cargo_check:
@@ -55,14 +55,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - uses: actions-rs/cargo@v1
-        with:
-          command: check
-          args: --all
+      # - uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
+      # - uses: actions-rs/cargo@v1
+      #   with:
+      #     command: check
+      #     args: --all
 
   # Run tests on Linux, and macOS
   # On both Rust stable and Rust nightly
@@ -79,38 +79,38 @@ jobs:
       # Checkout the branch being tested
       - uses: actions/checkout@v1
 
-      # Install all the required dependencies for testing
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+      # # Install all the required dependencies for testing
+      # - uses: actions-rs/toolchain@v1
+      #   with:
+      #     toolchain: stable
+      #     override: true
 
-      # Install Node.js at a fixed version
-      - uses: actions/setup-node@master
-        with:
-          node-version: "12.0.0"
+      # # Install Node.js at a fixed version
+      # - uses: actions/setup-node@master
+      #   with:
+      #     node-version: "12.0.0"
 
-      # Install Golang at a fixed version
-      - uses: actions/setup-go@master
-        with:
-          go-version: "1.12.1"
+      # # Install Golang at a fixed version
+      # - uses: actions/setup-go@master
+      #   with:
+      #     go-version: "1.12.1"
 
-      # Install Ruby at a fixed version
-      - uses: actions/setup-ruby@master
-        with:
-          ruby-version: "2.6.3"
+      # # Install Ruby at a fixed version
+      # - uses: actions/setup-ruby@master
+      #   with:
+      #     ruby-version: "2.6.3"
 
-      # Install Python at a fixed version
-      - uses: actions/setup-python@master
-        with:
-          python-version: "3.6.9"
+      # # Install Python at a fixed version
+      # - uses: actions/setup-python@master
+      #   with:
+      #     python-version: "3.6.9"
 
-      # Run the ignored tests that expect the above setup
-      - name: Run all tests
-        uses: actions-rs/cargo@v1
-        with:
-          command: test
-          args: -- -Z unstable-options --include-ignored
+      # # Run the ignored tests that expect the above setup
+      # - name: Run all tests
+      #   uses: actions-rs/cargo@v1
+      #   with:
+      #     command: test
+      #     args: -- -Z unstable-options --include-ignored
 
   # Run the tests in the Docker image
   docker_test:
@@ -205,7 +205,7 @@ jobs:
           git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > ${{ github.workflow }}-RELEASE.txt
 
       - name: Create GitHub release
-        uses: matchai/action-gh-release@master
+        uses: softprops/action-gh-release@v1
         with:
           draft: true
           files: 'starship*.tar.gz'
