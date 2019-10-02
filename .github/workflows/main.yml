@@ -119,14 +119,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Pull the pre-built Docker image
-        run: docker pull starshipcommand/starship-test
-      - name: Fix file permissions
-        run: chmod -R a+w .
-      - name: Build the Docker image
-        run: docker build -f tests/Dockerfile --tag starshipcommand/starship-test --cache-from starshipcommand/starship-test .
-      - name: Run tests in Docker
-        run: docker run --rm -v $(pwd):/src/starship starshipcommand/starship-test
+      # - name: Pull the pre-built Docker image
+      #   run: docker pull starshipcommand/starship-test
+      # - name: Fix file permissions
+      #   run: chmod -R a+w .
+      # - name: Build the Docker image
+      #   run: docker build -f tests/Dockerfile --tag starshipcommand/starship-test --cache-from starshipcommand/starship-test .
+      # - name: Run tests in Docker
+      #   run: docker run --rm -v $(pwd):/src/starship starshipcommand/starship-test
 
   # Publish all packages to Crates.io
   cargo_publish:
@@ -167,20 +167,24 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v1
+
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           override: true
           target: ${{ matrix.target }}
+
       - name: Install musl tools
         if: matrix.target == 'x86_64-unknown-linux-musl'
         run: sudo apt-get install -y musl-tools
+
       - name: Build target
         uses: actions-rs/cargo@v1
         with:
           command: build
           args: --release --target ${{ matrix.target }}
+
       - name: Prepare build artifacts
         run: |
           strip target/${{ matrix.target }}/release/${{ matrix.bin }}
@@ -192,10 +196,13 @@ jobs:
             tar czvf ../../../${{ matrix.name }} ${{ matrix.bin }}
           fi
           cd -
-      - name: Install git-chglog
-        run: go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
+          
       - name: Generate release notes
-        run: git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > ${{ github.workflow }}-RELEASE.txt
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
+          git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > ${{ github.workflow }}-RELEASE.txt
+
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
