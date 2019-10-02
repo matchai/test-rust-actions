@@ -208,9 +208,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          files: |
-            'starship*.tar.gz'
-            'starship*.zip'
+          files: 'starship*.tar.gz'
           body_path: ${{ github.workflow }}-RELEASE.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
