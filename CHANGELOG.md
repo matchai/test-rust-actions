@@ -2,6 +2,10 @@
 ## [Unreleased]
 
 ### Continuous Integration
+- push to static remote
+- Add git config for commit
+- Use changelog template for generating changelogs
+- Add changelog generation
 - Log context
 
 
