@@ -172,7 +172,15 @@ jobs:
           go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
           git-chglog -c .github/chglog/changelog.yml > CHANGELOG.md
       - name: Commit new changelog
-        run: git add CHANGELOG.md && git commit -m "chore:\ Update changelog"
+        run: |
+          git config user.email "bots@wintron.codes"
+          git config user.name "${GITHUB_REPOSITORY}[bot]"
+
+          git add CHANGELOG.md
+          git commit -m "chore:\ Update changelog"
+          git push
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # Publish all packages to Crates.io
   cargo_publish:
