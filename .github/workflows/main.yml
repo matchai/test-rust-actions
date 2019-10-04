@@ -178,7 +178,7 @@ jobs:
 
           git checkout master
           git add CHANGELOG.md
-          git commit -m "chore:\ Update changelog"
+          git commit -m "chore: Update changelog"
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" master
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
