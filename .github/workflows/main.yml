@@ -150,13 +150,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest, ubuntu-18.04, macOS-latest]
         include:
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             bin: starship
             name: starship-x86_64-unknown-linux-gnu.tar.gz
-          - os: ubuntu-latest
+          - os: ubuntu-18.04
             target: x86_64-unknown-linux-musl
             bin: starship
             name: starship-x86_64-unknown-linux-musl.tar.gz
@@ -164,10 +164,6 @@ jobs:
             target: x86_64-apple-darwin
             bin: starship
             name: starship-x86_64-apple-darwin.tar.gz
-          # - os: windows-latest
-          #   target: x86_64-pc-windows-msvc
-          #   bin: starship.exe
-          #   name: starship-Windows-x86_64.zip
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v1
@@ -208,10 +204,9 @@ jobs:
           go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
           git-chglog -c .github/chglog/release.yml $(git describe --tags $(git rev-list --tags --max-count=1)) > RELEASE.txt
 
-      - name: Create GitHub release
+      - name: Create GitHub release ${{ matrix.target }}
         uses: softprops/action-gh-release@v1
         with:
-          draft: true
           files: ${{ matrix.name }}
           body_path: RELEASE.txt
         env:
