@@ -207,8 +207,8 @@ jobs:
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
-        #   draft: true
-          # files: ${{ matrix.name }}
+          draft: true
+          files: ${{ matrix.name }}
           body_path: RELEASE.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
