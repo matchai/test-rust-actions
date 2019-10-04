@@ -150,12 +150,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest, ubuntu-latest, macOS-latest]
         include:
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             bin: starship
             name: starship-x86_64-unknown-linux-gnu.tar.gz
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-musl
+            bin: starship
+            name: starship-x86_64-unknown-linux-musl.tar.gz
           - os: macOS-latest
             target: x86_64-apple-darwin
             bin: starship
