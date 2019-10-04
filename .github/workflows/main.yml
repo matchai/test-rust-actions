@@ -170,7 +170,7 @@ jobs:
           # Temporary fix for https://github.com/actions/setup-go/issues/14
           export PATH=$PATH:$(go env GOPATH)/bin
           go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
-          git-chglog -c .github/chglog/release.yml $(git describe --tags) > CHANGELOG.md
+          git-chglog -c .github/chglog/changelog.yml > CHANGELOG.md
       - name: Commit new changelog
         run: git add CHANGELOG.md && git commit -m "chore:\ Update changelog"
 
