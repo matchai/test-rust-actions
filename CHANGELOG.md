@@ -2,6 +2,7 @@
 ## [Unreleased]
 
 ### Continuous Integration
+- Remove unnecessary escape
 - push to static remote
 - Add git config for commit
 - Use changelog template for generating changelogs
