@@ -157,6 +157,23 @@ jobs:
       # - name: Run tests in Docker
       #   run: docker run --rm -v $(pwd):/src/starship starshipcommand/starship-test
 
+  generate_changelog:
+    if: github.ref == 'refs/heads/master'
+    name: Update Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Delete old changelog
+        run: rm -rf CHANGELOG.md
+      - name: Generate changelog
+        run: |
+          # Temporary fix for https://github.com/actions/setup-go/issues/14
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
+          git-chglog -c .github/chglog/release.yml $(git describe --tags) > CHANGELOG.md
+      - name: Commit new changelog
+        run: git add CHANGELOG.md && git commit -m "chore:\ Update changelog"
+
   # Publish all packages to Crates.io
   cargo_publish:
     if: startsWith(github.ref, 'refs/tags/v')
