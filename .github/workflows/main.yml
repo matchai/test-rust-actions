@@ -173,12 +173,13 @@ jobs:
           git-chglog -c .github/chglog/changelog.yml > CHANGELOG.md
       - name: Commit new changelog
         run: |
-          git config user.email "bots@wintron.codes"
-          git config user.name "${GITHUB_REPOSITORY}[bot]"
+          git config user.email "bot@starship.rs"
+          git config user.name "Starship Bot"
 
+          git checkout master
           git add CHANGELOG.md
           git commit -m "chore:\ Update changelog"
-          git push
+          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" master
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
