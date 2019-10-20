@@ -1,7 +1,11 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.35.5"></a>
+## [v0.35.5] - 2019-10-20
 ### Chore
+- Update changelog
 - Update changelog
 - Update changelog
 
@@ -147,14 +151,14 @@
 - Add logging to release process
 
 
-<a name="v0.0.12"></a>
-## [v0.0.12] - 2019-10-02
+<a name="v0.0.14"></a>
+## [v0.0.14] - 2019-10-02
 
 <a name="v0.0.13"></a>
 ## [v0.0.13] - 2019-10-02
 
-<a name="v0.0.14"></a>
-## [v0.0.14] - 2019-10-02
+<a name="v0.0.12"></a>
+## [v0.0.12] - 2019-10-02
 ### Continuous Integration
 - Remove zip artifact
 - Add a comment for the PATH update
@@ -215,7 +219,8 @@
 <a name="v0.0.1"></a>
 ## v0.0.1 - 2019-09-05
 
-[Unreleased]: https://github.com/starship/starship/compare/v0.35.4...HEAD
+[Unreleased]: https://github.com/starship/starship/compare/v0.35.5...HEAD
+[v0.35.5]: https://github.com/starship/starship/compare/v0.35.4...v0.35.5
 [v0.35.4]: https://github.com/starship/starship/compare/v0.35.3...v0.35.4
 [v0.35.3]: https://github.com/starship/starship/compare/v0.35.2...v0.35.3
 [v0.35.2]: https://github.com/starship/starship/compare/v0.35.1...v0.35.2
@@ -241,10 +246,10 @@
 [v0.0.18]: https://github.com/starship/starship/compare/v0.0.17...v0.0.18
 [v0.0.17]: https://github.com/starship/starship/compare/v0.0.16...v0.0.17
 [v0.0.16]: https://github.com/starship/starship/compare/v0.0.15...v0.0.16
-[v0.0.15]: https://github.com/starship/starship/compare/v0.0.12...v0.0.15
-[v0.0.12]: https://github.com/starship/starship/compare/v0.0.13...v0.0.12
-[v0.0.13]: https://github.com/starship/starship/compare/v0.0.14...v0.0.13
-[v0.0.14]: https://github.com/starship/starship/compare/v0.0.11...v0.0.14
+[v0.0.15]: https://github.com/starship/starship/compare/v0.0.14...v0.0.15
+[v0.0.14]: https://github.com/starship/starship/compare/v0.0.13...v0.0.14
+[v0.0.13]: https://github.com/starship/starship/compare/v0.0.12...v0.0.13
+[v0.0.12]: https://github.com/starship/starship/compare/v0.0.11...v0.0.12
 [v0.0.11]: https://github.com/starship/starship/compare/v0.0.10...v0.0.11
 [v0.0.10]: https://github.com/starship/starship/compare/v0.0.9...v0.0.10
 [v0.0.9]: https://github.com/starship/starship/compare/v0.0.8...v0.0.9
