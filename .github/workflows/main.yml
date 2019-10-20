@@ -229,7 +229,7 @@ jobs:
           args: --release --target ${{ matrix.target }}
 
       - name: Prepare build artifacts [Windows]
-        if: contains(matrix.os, 'windows')
+        if: matrix.os == 'windows-latest'
         run: |
           strip target/${{ matrix.target }}/release/starship
           cd target/${{ matrix.target }}/release
@@ -237,7 +237,7 @@ jobs:
           cd -
 
       - name: Prepare build artifacts [-nix]
-        if: ! contains(matrix.os, 'windows')
+        if: matrix.os != 'windows-latest'
         run: |
           strip target/${{ matrix.target }}/release/starship
           cd target/${{ matrix.target }}/release
