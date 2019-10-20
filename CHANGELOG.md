@@ -4,6 +4,8 @@
 ### Chore
 - Update changelog
 - Update changelog
+- Update changelog
+- **bump:** v0.21.0
 
 ### Continuous Integration
 - Remove unnecessary escape
