@@ -225,7 +225,7 @@ jobs:
 
       - name: Install VC++
         if: matrix.target == 'x86_64-pc-windows-gnu'
-        run: choco install rust-ms
+        run: choco install vcredist2017
 
       - name: Build target
         uses: actions-rs/cargo@v1
