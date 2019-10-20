@@ -1,6 +1,9 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Chore
+- Update changelog
+
 ### Continuous Integration
 - Remove unnecessary escape
 - push to static remote
