@@ -3,6 +3,7 @@
 
 ### Chore
 - Update changelog
+- Update changelog
 
 ### Continuous Integration
 - Remove unnecessary escape
