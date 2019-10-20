@@ -223,6 +223,10 @@ jobs:
         if: matrix.target == 'x86_64-unknown-linux-musl'
         run: sudo apt-get install -y musl-tools
 
+      - name: Install VC++
+        if: matrix.target == 'x86_64-pc-windows-gnu'
+        run: choco install rust-ms
+
       - name: Build target
         uses: actions-rs/cargo@v1
         with:
@@ -249,10 +253,10 @@ jobs:
           go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
           git-chglog -c .github/chglog/release.yml $(git describe --tags) > RELEASE.md
 
-      - name: Create GitHub release ${{ matrix.target }}
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ${{ matrix.name }}
-          body_path: RELEASE.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create GitHub release ${{ matrix.target }}
+      #   uses: softprops/action-gh-release@v1
+      #   with:
+      #     files: ${{ matrix.name }}
+      #     body_path: RELEASE.md
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
