@@ -3,6 +3,7 @@
 
 ### Chore
 - Update changelog
+- Update changelog
 
 
 <a name="v0.35.4"></a>
